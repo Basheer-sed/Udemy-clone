@@ -18,6 +18,10 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: solid black 1px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
 }
 
 .navbar__s1__title {
@@ -49,6 +53,30 @@ body {
   gap: 15px;
 }
 
+.navbar__s4 {
+  display: none;
+}
+
+.mylearning {
+  position: relative;
+  cursor: pointer;
+}
+
+.mylearning__popup {
+  border: solid black 1px;
+  padding: 10px;
+  top: 150%;
+  width: 100px;
+  background-color: white;
+  right: 0;
+  position: absolute;
+  display: none;
+}
+
+.mylearning:hover .mylearning__popup {
+  display: block;
+}
+
 .categories {
   display: flex;
   padding: 10px;
@@ -61,10 +89,42 @@ body {
   color: white;
   background-color: blueviolet;
   padding: 10px;
+  cursor: pointer;
+}
+
+.sale-image {
+  position: relative;
 }
 
 .sale-image img {
   width: 100%;
+  height: 450px;
+}
+
+.sale-image__offer {
+  border: solid 2px black;
+  padding: 15px;
+  width: 400px;
+  position: absolute;
+  background-color: white;
+  top: 10%;
+  left: 5%;
+  animation-name: zoom;
+  animation-duration: 2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .recommended {
@@ -77,6 +137,12 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+
+.recommended__card {
+  flex-grow: 1;
+  flex-basis: 20%;
+  margin: 5px;
 }
 
 .recommended__card img {
@@ -114,10 +180,68 @@ body {
 }
 
 .popular__card {
-  padding: 10px;
+  flex-grow: 1;
+  flex-basis: 20%;
+  margin: 5px;
 }
 
 .popular__card img {
   width: 270px;
   height: 200px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.footer__one {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+
+.footer__one__s1 p,
+.footer__one__s2 p {
+  margin: 20px;
+}
+
+.footer__two {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  align-items: center;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .recommended__card {
+    flex-basis: 40%;
+  }
+
+  .categories {
+    display: none;
+  }
+
+  .popular__card {
+    flex-basis: 40%;
+  }
+
+  .navbar__s2,
+  .navbar__s3 {
+    display: none;
+  }
+
+  .navbar__s4 {
+    display: block;
+  }
 }
